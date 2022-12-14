@@ -20,7 +20,7 @@ def fibo_0(k):
 
     result, i = 0, 0
     f = 1
-    while f < 4000000:
+    while f < k:
         i += 1
         f = sub_fibo_0(i)
         if f%2 == 0:

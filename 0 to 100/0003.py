@@ -11,7 +11,7 @@ def largest_prime_factor_0(k):
     while i*i <= k:
         i += 1
         if k%i == 0:
-            return max(i, largest_prime_factor_0(int(k/i)))
+            return max(i, largest_prime_factor_0(k//i))
     return k
 
 def largest_prime_factor_1(k):
@@ -23,7 +23,7 @@ def largest_prime_factor_1(k):
     while i*i < k:
         i += 1
         if k%i == 0:
-            k = int(k/i)
+            k = k//i
     return k
 
 if __name__ == '__main__':

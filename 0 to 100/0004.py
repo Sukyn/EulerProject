@@ -5,7 +5,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 def is_palindrom(n):
     arr = list(str(n))
-    for i in range(int(len(arr)/2)):
+    for i in range(len(arr)//2):
         if arr[i] != arr[len(arr)-1-i]:
             return False
     return True

@@ -3,24 +3,26 @@
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 '''
 
-def decomp_prime(n):
-    res = {}
+def decomp_prime(number):
+    ''' Creates a dictionary which associates
+    each prime number with its exposant in the prime
+    decomposition of the number'''
+    primes = {}
     i = 1
-    while i*i <= n:
+    while i*i <= number:
         i += 1
-        if n%i == 0:
-            if i in res:
-                res[i] += 1
+        if number%i == 0:
+            if i in primes:
+                primes[i] += 1
             else:
-                res[i] = 1
-            n = int(n/i)
+                primes[i] = 1
+            number = number//i
             i = 1
-
-    if n in res:
-        res[n] += 1
+    if number in primes:
+        primes[number] += 1
     else:
-        res[n] = 1
-    return res
+        primes[number] = 1
+    return primes
 
 
 def smallest_nb(k):
@@ -28,7 +30,7 @@ def smallest_nb(k):
     for i in range(1, k+1):
         primes = decomp_prime(i)
         for factor in primes.keys():
-            for j in range(0, primes[factor]):
+            for j in range(primes[factor]):
                 if res%(factor**primes[factor]) != 0:
                     res *= factor
     return res

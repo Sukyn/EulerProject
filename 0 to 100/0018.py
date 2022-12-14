@@ -95,7 +95,20 @@ def dynamic_programming():
     [91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48],
     [63, 66, 4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31],
     [4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23]]
-    return dynamic_programming_algo(nbs)
+    return dynamic_pro_optimized(nbs)
+
+def dynamic_prog_optimized(tab):
+    ''' Best version :
+    Calculate row by row from bottom
+    Complexity O(n^2)'''
+    if len(tab) == 1:
+        return tab[0][0]
+    else:
+        for i in range(len(tab[-2])):
+            tab[-2][i] = tab[-2][i] + max(tab[-1][i], tab[-1][i+1])
+        tab.pop(len(tab)-1)
+        return dynamic_prog_optimized(tab)
+
 
 if __name__ == '__main__':
     startTime = time.time()
