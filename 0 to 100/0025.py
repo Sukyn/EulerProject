@@ -37,7 +37,7 @@ if __name__ == '__main__':
     startTime = time.time()
 
     i = 1
-    while (len(list(str(fibo(i)).strip())) < 1000):
+    while (len(list(str(fibo(i)).strip())) < 100000):
         i += 1
     result = i
     print(result, "in s:", time.time()-startTime)

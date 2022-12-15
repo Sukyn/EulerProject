@@ -10,6 +10,10 @@ def is_palindrom(n):
             return False
     return True
 
+def is_palindrom_opt(n):
+    arr = list(str(n))
+    return arr == arr[::-1] # Reverse array
+
 def palindrom_product_0(k):
     ''' Naive version
     Complexity : 100**k loop iterations
